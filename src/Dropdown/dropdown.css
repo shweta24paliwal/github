@@ -10,14 +10,28 @@
 .drpdown-opts{
     display: none;
     position: absolute;
-    top: 14px;
+    top: 30px;
     right: 0px;
-    padding: 0px;
-    list-style: none;
-    background: grey;
-    padding: 10px;
-    min-width: 133px;
+    border: 1px solid #f2eaea;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    width:230px;
+    background: #dcdfe1;
+    font-size: 12px;
 }
 .drpdown-shown{
     display: block !important;
+}
+.drpdown-opts ul{
+    background: #fff;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.drpdown-opts ul li{
+    padding: 8px;
+    border-bottom: 1px solid #f2e9e9;
+    cursor: pointer;
+}
+.drpdown-opts .title{
+    padding: 8px;
 }

@@ -15,6 +15,12 @@ class Dropdown extends Component{
             show: !this.state.show
         });
     }
+    selectValue(value){
+        this.setState({
+            selected:value
+        });
+
+    }
     render(){
         const optionClass = ['drpdown-opts'];
         if(this.state.show){
@@ -22,18 +28,25 @@ class Dropdown extends Component{
         }
         const options = this.props.values.map((item, index) => {
             return (
-                <li key={index}>
-                    {item}
-                </li>
+                <ul>
+                    <li key={index} onClick={() => this.selectValue(item)}>
+                        {item}
+                    </li>
+                </ul>
+                
             );
         });
 
         return(
             <div className='dropdown'>
                 <button onClick={this.showValues} className='btn dropdown-btn'>{this.props.name}<strong>All</strong></button>
-                <ul className={optionClass.join(" ")}>
-                    {options}
-                </ul>
+                <div className={optionClass.join(" ")}>
+                    <div className='title'>Select {this.props.name}</div>
+                    <ul>
+                        {options}
+                    </ul>
+                </div>
+                
             </div>
         );
     }

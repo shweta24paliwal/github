@@ -5,8 +5,8 @@ import Dropdown from '../Dropdown/Dropdown';
 class Profile extends Component{
    
     render(){
-        const typeValues = ["All","Sources","Folks","Archieved","Mirrors"];
-        const LanguageValues = ["All", "css", "JS"];
+        const typeValues = ["All","Sources","Forks","Archived","Mirrors"];
+        const LanguageValues = ["All", "HTML", "JavaScript","CSS"];
         return(
             <div className='main-container'>
                 <div className='profile-container'>
