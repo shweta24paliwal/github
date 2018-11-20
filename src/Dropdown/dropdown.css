@@ -1,0 +1,23 @@
+.dropdown {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+.dropdown-btn{
+    
+    padding: 6px 10px;
+}
+.drpdown-opts{
+    display: none;
+    position: absolute;
+    top: 14px;
+    right: 0px;
+    padding: 0px;
+    list-style: none;
+    background: grey;
+    padding: 10px;
+    min-width: 133px;
+}
+.drpdown-shown{
+    display: block !important;
+}

@@ -12,7 +12,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.btn{
+  border-radius: 3px;
+  padding: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #edf2f6;
+  border: 1px solid #c1b2b2;
+  cursor: pointer;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

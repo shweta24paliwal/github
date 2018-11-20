@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import './Profile.css';
+import Dropdown from '../Dropdown/Dropdown';
 
 class Profile extends Component{
+   
     render(){
+        const typeValues = ["All","Sources","Folks","Archieved","Mirrors"];
+        const LanguageValues = ["All", "css", "JS"];
         return(
             <div className='main-container'>
                 <div className='profile-container'>
@@ -30,8 +34,8 @@ class Profile extends Component{
                     <div className='search-bar-container'>
                         <input type='text' className='search-bar' placeholder='Search repositories'/>
                         <div className='dropdown-btn-container'>
-                            <button className='btn dropdown-btn'>Type:<strong>All</strong></button>
-                            <button className='btn dropdown-btn'>Language:<strong>All</strong></button>
+                            <Dropdown name='Type:' values={typeValues}/>
+                            <Dropdown name='Language:' values={LanguageValues}/>
                             <button className='btn new-btn'>New</button>
                         </div>
                     </div>
