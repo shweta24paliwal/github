@@ -11,9 +11,9 @@ class User extends Component{
             <p className='bio'>Front end developer since 1.5 yrs</p>
             <button className='btn edit-btn'>Edit Bio</button>
             <ul className='info'>
-                <li>Target Coorporation</li>
-                <li>India</li>
-                <li><i class="fal fa-envelope"></i>supreetsingh.247@gmail.com</li>
+                <li><i class="fas fa-users"></i> Target Coorporation</li>
+                <li><i class="fas fa-map-marker-alt"></i> India</li>
+                <li><i class="far fa-envelope"></i> <span className='email-id'>supreetsingh.247@gmail.com</span></li>
             </ul>
         </div>
     )
