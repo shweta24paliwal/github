@@ -17,7 +17,8 @@ class Dropdown extends Component{
     }
     selectValue(value){
         this.setState({
-            selected:value
+            selected:value,
+            show: false
         });
         this.props.onChange(value);
 

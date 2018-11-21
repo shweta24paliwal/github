@@ -23,7 +23,41 @@ class RepoList extends Component{
     }
 
     render(){
-      const list = this.props.userRepos.map((item, i) => {
+      console.log('props', this.props);
+      let allRepos = this.props.userRepos;
+
+      if (this.props.selectedType !== 'All') {
+        allRepos = allRepos.filter((item) => {
+            if (this.props.selectedType === "Sources") {
+                return !item['fork']
+            }
+            return item[this.props.selectedType.toLowerCase()]
+        });
+      }
+
+      if (this.props.selectedLang !== 'All') {
+        allRepos = allRepos.filter((item) => {
+            let lang = item.language;
+            if (lang) {
+                lang = lang.toLowerCase();
+                return lang === this.props.selectedLang.toLowerCase();
+            } else {
+                return false;
+            }
+        });
+      }
+
+
+      if (this.props.searchQuery) {
+        allRepos = allRepos.filter((item) => {
+            const name = item.name.toLowerCase();
+            const q = this.props.searchQuery.toLowerCase();
+            return name.search(q) >=0;
+        });
+      }
+
+      
+      const list = allRepos.map((item, i) => {
         const lang = get(item, 'language');  
         const updatedDate = new Date(get(item, 'updated_at'));
         const license = get(item, 'license.name');
@@ -47,9 +81,15 @@ class RepoList extends Component{
       });
       return (
         <div className='repo-data-container'>
-            <ul class='repo'>
-                {list}
-            </ul>
+            {allRepos.length === 0 ? (
+               <div class='not-found'>
+                   No Repository found :(
+                </div>     
+            ): (
+                <ul class='repo'>
+                     {list}
+                </ul>
+            )}
          </div>
       );
     }

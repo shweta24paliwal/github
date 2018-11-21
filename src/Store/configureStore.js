@@ -7,10 +7,10 @@ const defaultState ={
     selectedType:"All",
     selectedLang:"All",
     searchQuery:"",
-    typeValues: ["All","Sources","Forks","Archived","Mirrors"],
+    typeValues: ["All","Sources","Fork","Archived","Mirrors"],
     LanguageValues: ["All", "HTML", "JavaScript","CSS"],
     userProfile: null,
-    userRepos: repo,
+    userRepos: [],
     userProfileFetchInProgress: true,
     userReposFetchInProgress: false
 };
@@ -27,7 +27,7 @@ function newState(state = defaultState, action){
     if (action.type === 'UPDATE_LANG') {
         return {
             ...state,
-            selectedType: action.data.value
+            selectedLang: action.data.value
         }
     }
 

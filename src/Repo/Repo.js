@@ -15,7 +15,7 @@ class Repo extends Component{
     }
 
     componentDidMount() {
-     // this.props.getRepoData();      
+     this.props.getRepoData();      
     }
 
     onTypeChange(value) {
@@ -60,7 +60,12 @@ class Repo extends Component{
                                 <button className='btn new-btn'>New</button>
                             </div>
                         </div>
-                        <RepoList userRepos={this.props.userRepos} />
+                        <RepoList
+                            selectedType={this.props.selectedType}
+                            selectedLang={this.props.selectedLang}
+                            searchQuery={this.props.searchQuery}
+                            userRepos={this.props.userRepos} 
+                        />
                     </div>
                 )}
             </div>

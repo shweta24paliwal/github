@@ -7,7 +7,7 @@ import {get} from "lodash";
 
 class User extends Component{
    componentDidMount() {
-        // this.props.getProfileData();
+        this.props.getProfileData();
    } 
    render(){
        console.log('info---0', get.toString());
