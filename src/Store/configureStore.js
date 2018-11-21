@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import repo from "./repo.js";
+
 
 const defaultState ={
     selectedType:"All",

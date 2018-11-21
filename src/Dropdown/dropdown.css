@@ -31,6 +31,9 @@
     border-bottom: 1px solid #f2e9e9;
     cursor: pointer;
 }
+.drpdown-opts ul li:hover{
+    background: #3eaad7;
+}
 .drpdown-opts .title{
     padding: 8px;
 }
