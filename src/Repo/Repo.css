@@ -72,15 +72,42 @@
 .repo li{
     list-style: none;
     padding: 20px 0px;
+    border-bottom: 1px solid #dbd4d4;
 }
 .repo li a{
     font-size: 17px;
-    padding-bottom: 20px;
     display: block;
     color: #4b4bf6;
-    font-weight: 700;
+    font-weight: 500;
     cursor: pointer;
+    text-decoration: none;
 }
+.repo li .dot{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background: grey;
+    margin-right: 5px;
+}
+.JavaScript {
+    background: red !important;
+}
+.CSS{
+    background: yellow !important;
+}
+
+.repo li p {
+   margin-top: 5px;
+   margin-bottom: 0; 
+   font-size: 12px;
+   color:#958989;
+}
+
+.repo li .meta {
+    margin-top: 20px;
+}
+
 .repo li a:hover{
     text-decoration:#4b4bf6;
     text-decoration-line: underline;

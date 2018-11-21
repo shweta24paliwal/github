@@ -29,11 +29,9 @@ class Dropdown extends Component{
         }
         const options = this.props.values.map((item, index) => {
             return (
-                <ul>
-                    <li key={index} onClick={() => this.selectValue(item)}>
+                <li key={index} onClick={() => this.selectValue(item)}>
                         {item}
-                    </li>
-                </ul>
+                </li>
                 
             );
         });

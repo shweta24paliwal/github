@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import './Repo.css';
+import RepoList from './RepoList';
 import {connect} from 'react-redux';
 import mapStateToProps from './mapStateToProps.js';
 import mapDispatchToProps from './mapDispatchToProps.js';
@@ -11,6 +12,10 @@ class Repo extends Component{
         this.onTypeChange = this.onTypeChange.bind(this);
         this.onLangChange = this.onLangChange.bind(this);
         this.onInputChange = this.onInputChange.bind(this);    
+    }
+
+    componentDidMount() {
+     // this.props.getRepoData();      
     }
 
     onTypeChange(value) {
@@ -30,6 +35,8 @@ class Repo extends Component{
         const typeValues = this.props.typeValues;
         const LanguageValues = this.props.LanguageValues;
         const query = this.props.searchQuery;
+
+        console.log('repos', this.props.userRepos);
         return(
             <div className='repo-container'>
                 <div className='nav-bar-container'>
@@ -41,23 +48,21 @@ class Repo extends Component{
                         <a href='#'>Following <span className='count'>2</span></a>
                     </nav>
                 </div>
-                <div className='search-bar-container'>
-                    <input value={query} onChange={(e) => {this.onInputChange(e.target.value)}} type='text' className='search-bar' placeholder='Search repositories'/>
-                    <div className='dropdown-btn-container'>
-                        <Dropdown onChange={this.onTypeChange} selected={this.props.selectedType} name='Type:' values={typeValues}/>
-                        <Dropdown onChange={this.onLangChange} selected={this.props.selectedLang} name='Language:' values={LanguageValues}/>
-                        <button className='btn new-btn'>New</button>
+                {this.props.userReposFetchInProgress ? (
+                    <div>Loading Repos...</div>
+                ) : (
+                    <div>
+                        <div className='search-bar-container'>
+                            <input value={query} onChange={(e) => {this.onInputChange(e.target.value)}} type='text' className='search-bar' placeholder='Search repositories'/>
+                            <div className='dropdown-btn-container'>
+                                <Dropdown onChange={this.onTypeChange} selected={this.props.selectedType} name='Type:' values={typeValues}/>
+                                <Dropdown onChange={this.onLangChange} selected={this.props.selectedLang} name='Language:' values={LanguageValues}/>
+                                <button className='btn new-btn'>New</button>
+                            </div>
+                        </div>
+                        <RepoList userRepos={this.props.userRepos} />
                     </div>
-                </div>
-                <div className='repo-data-container'>
-                    <ul class='repo'>
-                        <li>
-                            <a>React-Redux-Boilerplate</a>
-                            <span>Javascript</span>
-                            <span>Updated on 29 Jul</span>
-                        </li>
-                    </ul>
-                </div>
+                )}
             </div>
         )
     }
