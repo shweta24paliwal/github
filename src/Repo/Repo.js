@@ -1,11 +1,35 @@
 import React, {Component} from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import './Repo.css';
+import {connect} from 'react-redux';
+import mapStateToProps from './mapStateToProps.js';
+import mapDispatchToProps from './mapDispatchToProps.js';
 
 class Repo extends Component{
+    constructor(props) {
+        super(props);
+        this.onTypeChange = this.onTypeChange.bind(this);
+        this.onLangChange = this.onLangChange.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);    
+    }
+
+    onTypeChange(value) {
+        this.props.updateType ({value: value})
+    }
+
+
+    onLangChange(value) {
+        this.props.updateLanguage ({value: value})
+    }
+
+    onInputChange(value) {
+        this.props.updateSearchQuery({value: value})
+    }
+
     render(){
-        const typeValues = ["All","Sources","Forks","Archived","Mirrors"];
-        const LanguageValues = ["All", "HTML", "JavaScript","CSS"];
+        const typeValues = this.props.typeValues;
+        const LanguageValues = this.props.LanguageValues;
+        const query = this.props.searchQuery;
         return(
             <div className='repo-container'>
                 <div className='nav-bar-container'>
@@ -18,10 +42,10 @@ class Repo extends Component{
                     </nav>
                 </div>
                 <div className='search-bar-container'>
-                    <input type='text' className='search-bar' placeholder='Search repositories'/>
+                    <input value={query} onChange={(e) => {this.onInputChange(e.target.value)}} type='text' className='search-bar' placeholder='Search repositories'/>
                     <div className='dropdown-btn-container'>
-                        <Dropdown name='Type:' values={typeValues}/>
-                        <Dropdown name='Language:' values={LanguageValues}/>
+                        <Dropdown onChange={this.onTypeChange} selected={this.props.selectedType} name='Type:' values={typeValues}/>
+                        <Dropdown onChange={this.onLangChange} selected={this.props.selectedLang} name='Language:' values={LanguageValues}/>
                         <button className='btn new-btn'>New</button>
                     </div>
                 </div>
@@ -38,4 +62,5 @@ class Repo extends Component{
         )
     }
  }
- export default Repo
+
+ export default connect(mapStateToProps, mapDispatchToProps)(Repo);

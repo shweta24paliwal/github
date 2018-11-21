@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Profile.css';
-import Dropdown from '../Dropdown/Dropdown';
+
 import User from '../User/User.js';
 import Repo from '../Repo/Repo.js';
 

@@ -41,6 +41,11 @@
  .info .email-id{
      color: #0973e1;
  }
+ .info .icon{
+    margin-right: 5px;
+    font-size: 11px;
+    width: 13px;
+ }
 
  @media screen and (max-width: 768px) and (min-width: 320px){
 	.profile-container {
