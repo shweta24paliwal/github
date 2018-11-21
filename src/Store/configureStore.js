@@ -12,7 +12,7 @@ const defaultState ={
     userProfile: null,
     userRepos: [],
     userProfileFetchInProgress: true,
-    userReposFetchInProgress: false
+    userReposFetchInProgress: true
 };
 
 function newState(state = defaultState, action){
